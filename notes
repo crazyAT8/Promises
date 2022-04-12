@@ -1,0 +1,132 @@
+YouTube: "Promises in 10 Minutes"
+URL: https://www.youtube.com/watch?v=DHvZLI7Db8E&list=RDCMUCFbNIlppjAuEX4znoulh0Cw&start_radio=1&rv=DHvZLI7Db8E&t=2
+
+- Promises in JavaScript
+    are vary similar to promises in real life
+
+    Ex: 
+        I promise to do something
+            and that promise can have one of two results
+                1. the promise is completed
+                    it is resolved
+                2. the promise has failed
+                    and is rejected
+    Syntax:
+                    new Promise((resolve, reject) => {
+                        // code that states the promise
+                        if (//condition is true) {
+                            resolve("Correct")
+                        } else {
+                            reject("Incorrect")
+                        }
+                    })
+
+- a promise object is going to take
+    one parameter
+        which is a function
+            which gets passed two variables 
+                of resolve and reject
+- then you create the
+    definition of the function 
+        inside
+- now lets see how we interact with promises 
+- the then will run
+    if the promise resolves
+- the catch will run 
+    if the promise is rejected
+
+- Promises are really good when
+    you need to do something
+        that will take a really long time
+            in the background
+- such as
+    downloading an image
+        from a different server
+            and you want to do something 
+                after its complete 
+                    instead of making everything else 
+                        wait for it
+    and you can also catch it '
+        to see if its failed
+            so that way you could maybe retry it
+                or give the user an error message
+                    if it did fail
+- Now lets look at Callbacks
+    which promises are meant to replace
+        and actually replace it with promises
+- this takes two callbacks
+    1. success
+    2. error
+        all it does is 
+            check two variables
+                to see if either of them are true
+                    if neither of these variables are true
+                        it'll call the success callback
+                            saying everthing went well
+- Look to the side comments
+    for the results
+        but is both variables are true
+            it returns
+                - "User Left :("
+- Instead of callbacks
+    lets make this in to a promise
+- Now lets look at 
+    how we actually use this function
+- Remember this is a 
+    function that takes no parameters
+        so give the ()
+            after the name
+                and then ask it to 
+                    do something afterwards
+                        which means we add a 
+                            .then
+                                success callback
+                            after that 
+                                .catch
+- The code is alot cleaner to write
+    thats bc there are no nested callbacks
+        when you start nesting callbacks
+            your code will keep getting indented
+- With promises
+    instead of nesting callbacks
+        all you do is just add 
+            another then
+                instead of having callback
+                    inside of another callback
+- Now lets look at some of the things we can do with promises
+
+- These are three simple promises
+    all they do is resolve 
+        and never reject
+            and send a single message
+                when they resolve
+- Lets say
+    we want something to happen
+        after every things recorded
+            all three of these videos
+    we want to run all three of these 
+        in parallel at the same time
+            so we don't have worry about
+                waiting for one 
+                    before we start the next
+    we use
+        promise.all
+            which makes an array
+                of everything you want to run
+                    promise.all runs every single one
+                        and as soon as it is done
+                            it will call the .then and .catch methods
+                                depending on if they resolve or fail
+    now lets say 
+        we want something to happen
+            as soon as one of my videos is done
+                we use promise.race
+                    it will return as soon as the first one is complete
+                        instead of waiting for everything
+                bc of that it will only return
+                    a single message------------drop the s
+                        in the .then
+                            as opposed to
+                                all of the messages
+
+    
